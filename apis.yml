@@ -4,8 +4,7 @@ url: >-
 apis:
   - aid: spaceflight-news-api:spaceflight-news-api
     name: Spaceflight News API
-    tags:
-      - API
+    tags: []
     humanURL: https://www.spaceflightnewsapi.net
     properties:
       - url: https://www.spaceflightnewsapi.net
@@ -18,8 +17,8 @@ apis:
       well!
 name: Spaceflight News API
 tags:
-  - Space
   - News
+  - Space
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
