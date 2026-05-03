@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spaceflight-news-api/refs/heads/main/json-schema/spaceflight-news-api-article-schema.json",
+  "title": "Spaceflight News API Article",
+  "description": "Schema for a spaceflight news article returned by the Spaceflight News API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the article",
+      "type": "integer",
+      "example": 25801
+    },
+    "title": {
+      "description": "Headline of the news article",
+      "type": "string",
+      "example": "NASA adjusts ISS flight schedule for upcoming missions"
+    },
+    "authors": {
+      "description": "List of authors who contributed to this article",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Author"
+      }
+    },
+    "url": {
+      "description": "Link to the full article on the original publication site",
+      "type": "string",
+      "format": "uri"
+    },
+    "image_url": {
+      "description": "URL of the featured image for this article",
+      "type": "string",
+      "format": "uri"
+    },
+    "news_site": {
+      "description": "Name of the publishing news organization",
+      "type": "string",
+      "example": "NASA"
+    },
+    "summary": {
+      "description": "Brief summary or excerpt of the article content",
+      "type": "string"
+    },
+    "published_at": {
+      "description": "ISO 8601 timestamp of when the article was originally published",
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "description": "ISO 8601 timestamp of the last update to this record",
+      "type": "string",
+      "format": "date-time"
+    },
+    "featured": {
+      "description": "Whether this article is featured or highlighted",
+      "type": "boolean"
+    },
+    "launches": {
+      "description": "Launch Library 2 launches related to this article",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/LaunchRef"
+      }
+    },
+    "events": {
+      "description": "Launch Library 2 events related to this article",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/EventRef"
+      }
+    }
+  },
+  "definitions": {
+    "Author": {
+      "title": "Author",
+      "description": "An author who contributed to an article or blog post",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Full name of the author",
+          "type": "string"
+        },
+        "socials": {
+          "description": "Social media links for the author",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "LaunchRef": {
+      "title": "Launch Reference",
+      "description": "Reference to a Launch Library 2 launch linked to a news item",
+      "type": "object",
+      "properties": {
+        "launch_id": {
+          "description": "Unique Launch Library 2 launch UUID",
+          "type": "string",
+          "format": "uuid"
+        },
+        "provider": {
+          "description": "Launch service provider name",
+          "type": "string"
+        }
+      }
+    },
+    "EventRef": {
+      "title": "Event Reference",
+      "description": "Reference to a Launch Library 2 event linked to a news item",
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "description": "Unique Launch Library 2 event ID",
+          "type": "integer"
+        },
+        "provider": {
+          "description": "Event provider name",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

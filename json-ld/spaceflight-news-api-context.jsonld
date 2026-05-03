@@ -1,0 +1,66 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "snapi": "https://api.spaceflightnewsapi.net/vocab/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Article": "schema:NewsArticle",
+    "Blog": "schema:BlogPosting",
+    "Report": "schema:Report",
+    "Author": "schema:Person",
+
+    "id": "@id",
+    "title": "schema:headline",
+    "authors": {
+      "@id": "schema:author",
+      "@type": "schema:Person"
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "image_url": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+    "news_site": "schema:publisher",
+    "summary": "schema:description",
+    "published_at": {
+      "@id": "schema:datePublished",
+      "@type": "xsd:dateTime"
+    },
+    "updated_at": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "featured": {
+      "@id": "snapi:featured",
+      "@type": "xsd:boolean"
+    },
+    "launches": {
+      "@id": "snapi:relatedLaunch"
+    },
+    "events": {
+      "@id": "snapi:relatedEvent"
+    },
+    "launch_id": "snapi:launchId",
+    "event_id": "snapi:eventId",
+    "provider": "schema:provider",
+    "name": "schema:name",
+    "socials": "schema:sameAs",
+
+    "count": "snapi:totalCount",
+    "next": {
+      "@id": "schema:nextItem",
+      "@type": "@id"
+    },
+    "previous": {
+      "@id": "schema:previousItem",
+      "@type": "@id"
+    },
+    "results": {
+      "@id": "schema:itemListElement"
+    }
+  }
+}

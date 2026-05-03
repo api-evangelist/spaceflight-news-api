@@ -1,0 +1,69 @@
+{
+  "summary": "List Articles Example",
+  "description": "Example response from GET /articles/ on the Spaceflight News API",
+  "request": {
+    "method": "GET",
+    "url": "https://api.spaceflightnewsapi.net/v4/articles/?limit=2&search=SpaceX",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "count": 8742,
+      "next": "https://api.spaceflightnewsapi.net/v4/articles/?limit=2&offset=2&search=SpaceX",
+      "previous": null,
+      "results": [
+        {
+          "id": 25801,
+          "title": "SpaceX Crew Dragon Returns to Earth After Six-Month ISS Mission",
+          "authors": [
+            {
+              "name": "Sarah Johnson",
+              "socials": {
+                "twitter": "https://twitter.com/sarahjspace"
+              }
+            }
+          ],
+          "url": "https://www.nasaspaceflight.com/2026/04/crew-dragon-returns",
+          "image_url": "https://www.nasaspaceflight.com/images/crew-dragon-splashdown.jpg",
+          "news_site": "NASASpaceflight",
+          "summary": "SpaceX Crew Dragon Endeavour splashed down in the Gulf of Mexico on Saturday, returning four astronauts after a six-month stay aboard the International Space Station.",
+          "published_at": "2026-04-15T18:30:00Z",
+          "updated_at": "2026-04-15T20:00:00Z",
+          "featured": true,
+          "launches": [
+            {
+              "launch_id": "e4f4b3c2-1234-5678-abcd-ef1234567890",
+              "provider": "Launch Library 2"
+            }
+          ],
+          "events": []
+        },
+        {
+          "id": 25798,
+          "title": "SpaceX Launches Starlink Group 10-5 Mission",
+          "authors": [],
+          "url": "https://spaceflightnow.com/2026/04/14/spacex-starlink-10-5/",
+          "image_url": "https://spaceflightnow.com/images/starlink-launch.jpg",
+          "news_site": "Spaceflight Now",
+          "summary": "A SpaceX Falcon 9 rocket carried 23 Starlink satellites to low Earth orbit Monday evening from Cape Canaveral Space Force Station in Florida.",
+          "published_at": "2026-04-14T22:45:00Z",
+          "updated_at": "2026-04-14T23:30:00Z",
+          "featured": false,
+          "launches": [
+            {
+              "launch_id": "a1b2c3d4-5678-9abc-def0-123456789abc",
+              "provider": "Launch Library 2"
+            }
+          ],
+          "events": []
+        }
+      ]
+    }
+  }
+}

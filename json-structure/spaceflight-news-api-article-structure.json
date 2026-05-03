@@ -1,0 +1,55 @@
+{
+  "title": "Spaceflight News API Article Structure",
+  "description": "JSON structure documentation for a Spaceflight News API article object",
+  "type": "object",
+  "fields": [
+    {"name": "id", "type": "integer", "required": false, "description": "Unique article identifier"},
+    {"name": "title", "type": "string", "required": false, "description": "Article headline"},
+    {
+      "name": "authors",
+      "type": "array",
+      "required": false,
+      "description": "List of authors",
+      "items": {
+        "type": "object",
+        "fields": [
+          {"name": "name", "type": "string", "required": false, "description": "Author full name"},
+          {"name": "socials", "type": "object", "required": false, "description": "Social media links"}
+        ]
+      }
+    },
+    {"name": "url", "type": "string", "format": "uri", "required": false, "description": "Link to original article"},
+    {"name": "image_url", "type": "string", "format": "uri", "required": false, "description": "Featured image URL"},
+    {"name": "news_site", "type": "string", "required": false, "description": "Publishing news organization"},
+    {"name": "summary", "type": "string", "required": false, "description": "Brief article summary or excerpt"},
+    {"name": "published_at", "type": "string", "format": "date-time", "required": false, "description": "Publication timestamp (ISO 8601)"},
+    {"name": "updated_at", "type": "string", "format": "date-time", "required": false, "description": "Last update timestamp (ISO 8601)"},
+    {"name": "featured", "type": "boolean", "required": false, "description": "Whether article is featured"},
+    {
+      "name": "launches",
+      "type": "array",
+      "required": false,
+      "description": "Linked Launch Library 2 launches",
+      "items": {
+        "type": "object",
+        "fields": [
+          {"name": "launch_id", "type": "string", "format": "uuid", "description": "Launch UUID"},
+          {"name": "provider", "type": "string", "description": "Launch service provider"}
+        ]
+      }
+    },
+    {
+      "name": "events",
+      "type": "array",
+      "required": false,
+      "description": "Linked Launch Library 2 events",
+      "items": {
+        "type": "object",
+        "fields": [
+          {"name": "event_id", "type": "integer", "description": "Event ID"},
+          {"name": "provider", "type": "string", "description": "Event provider"}
+        ]
+      }
+    }
+  ]
+}

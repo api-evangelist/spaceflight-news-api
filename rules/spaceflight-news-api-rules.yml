@@ -1,0 +1,87 @@
+rules:
+  snapi-operation-summary-title-case:
+    description: All operation summaries must use Title Case
+    message: Operation summary "{{value}}" must use Title Case
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-z0-9]*)(\\s[A-Z][a-z0-9]*)*$"
+
+  snapi-operation-id-camel-case:
+    description: All operationIds must use camelCase
+    message: OperationId "{{value}}" must use camelCase
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  snapi-tags-title-case:
+    description: All tags must use Title Case
+    message: Tag "{{value}}" must use Title Case
+    severity: warn
+    given: "$.tags[*].name"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-z0-9]*)(\\s[A-Z][a-z0-9]*)*$"
+
+  snapi-paths-trailing-slash:
+    description: SpaceAPI Django-based paths use trailing slashes
+    message: Path "{{value}}" should end with a trailing slash
+    severity: info
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: ".*/$"
+
+  snapi-list-endpoints-have-pagination:
+    description: List endpoints should have limit and offset parameters
+    message: List endpoint must include limit and offset query parameters
+    severity: warn
+    given: "$.paths[*].get"
+    then:
+      field: parameters
+      function: truthy
+
+  snapi-response-must-have-description:
+    description: All responses must have a description
+    message: Response must have a description
+    severity: warn
+    given: "$.paths[*][*].responses[*]"
+    then:
+      field: description
+      function: truthy
+
+  snapi-schema-properties-have-descriptions:
+    description: Schema properties should have descriptions
+    message: Schema property "{{path}}" should have a description
+    severity: info
+    given: "$.components.schemas[*].properties[*]"
+    then:
+      field: description
+      function: truthy
+
+  snapi-servers-must-be-https:
+    description: All server URLs must use HTTPS
+    message: Server URL "{{value}}" must use HTTPS
+    severity: error
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  snapi-api-versioned-path:
+    description: API base path should include version prefix
+    message: Server URL should include API version (e.g., /v4)
+    severity: info
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "/v[0-9]+"

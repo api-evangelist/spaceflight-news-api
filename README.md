@@ -1,42 +1,55 @@
-# Spaceflight News API (spaceflight-news-api)
-The Spaceflight News API is a tool that provides access to a vast database of news articles and updates related to space exploration and activities. Users can query the API to retrieve the latest information on launches, missions, and developments in the space industry. With this API, developers can integrate real-time space news updates into their projects, websites, or applications, enabling users to stay informed about the latest happenings in the world of spaceflight. The Spaceflight News API offers a valuable resource for those interested in space exploration, science, and technology, offering a convenient and reliable way to access up-to-date information on a wide range of space-related topics.
+# Spaceflight News API
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-search/spaceflight-news-api/refs/heads/main/apis.yml)
+The Spaceflight News API (SNAPI) is a free, open REST API that aggregates spaceflight news,
+blogs, and mission reports from over 43 sources including NASA, SpaceX, Reuters, NASASpaceflight,
+and Spaceflight Now. It provides paginated access to articles, blogs, and reports with
+integration to Launch Library 2 for linking news to specific launches and events.
 
-## Scope
+## Artifacts
 
-- **Type:** Contract 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+### OpenAPI Specs
 
-## Tags:
+- [Spaceflight News API OpenAPI](openapi/spaceflight-news-api-openapi.yml)
 
- - Space, News
+### Spectral Rules
 
-## Timestamps
+- [Spaceflight News API Rules](rules/spaceflight-news-api-rules.yml)
 
-- **Created:** 2024-11-07 
-- **Modified:** 2025-01-03 
+### Capabilities
 
-## APIs
+- [Space News Monitoring](capabilities/space-news-monitoring.yaml) — Workflow for monitoring and aggregating spaceflight news
 
-### Spaceflight News API
-The Spaceflight News API lets you add space related news to your apps. Skip to main content. Keep the servers going! Consider becoming a TSD Patron or give a one-time donation! ... Space stations and other missions often publish their data. With SNAPI, you can include it in your app as well!
+**Shared Definitions**
+- [Spaceflight News API](capabilities/shared/spaceflight-news-api.yaml)
 
-**Human URL:** [https://www.spaceflightnewsapi.net](https://www.spaceflightnewsapi.net)
+### JSON Schema
 
+- [Article Schema](json-schema/spaceflight-news-api-article-schema.json)
 
-#### Tags:
+### JSON Structure
 
- - API
+- [Article Structure](json-structure/spaceflight-news-api-article-structure.json)
 
-#### Properties
+### JSON-LD
 
-- [Documentation](https://www.spaceflightnewsapi.net)
+- [Spaceflight News API Context](json-ld/spaceflight-news-api-context.jsonld)
+
+### Examples
+
+- [List Articles Example](examples/spaceflight-news-api-list-articles-example.json)
+
+### Vocabulary
+
+- [Spaceflight News API Vocabulary](vocabulary/spaceflight-news-api-vocabulary.yml)
+
+## Links
+
+- [Website](https://www.spaceflightnewsapi.net)
+- [API Documentation](https://api.spaceflightnewsapi.net/v4/docs/)
+- [GitHub](https://github.com/thespacedevs/spaceflightnewsapi)
+- [Discord Support](https://discord.gg/thespacedevs)
 
 ## Maintainers
 
-**FN:** Kin Lane
-
-**Email:** info@apievangelist.com
-
+**FN:** Kin Lane  
+**Email:** kin@apievangelist.com

@@ -1,0 +1,90 @@
+vocabulary:
+  title: Spaceflight News API Vocabulary
+  description: >-
+    Domain vocabulary for the Spaceflight News API (SNAPI) — a free REST API that
+    aggregates spaceflight news, blogs, and mission reports from over 43 sources.
+  version: "1.0.0"
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+terms:
+  - term: Article
+    definition: >-
+      A spaceflight news article aggregated by SNAPI from a third-party news publication.
+      Articles typically cover breaking news about launches, missions, and space industry
+      developments.
+    tags:
+      - Content Type
+
+  - term: Blog
+    definition: >-
+      A spaceflight blog post providing more in-depth or editorial coverage than a standard
+      news article. Sourced from specialized space blogging sites and organization blogs.
+    tags:
+      - Content Type
+
+  - term: Report
+    definition: >-
+      A formal spaceflight mission report typically published by space agencies (NASA, ESA)
+      documenting mission objectives, data, and outcomes in a structured format.
+    tags:
+      - Content Type
+
+  - term: News Site
+    definition: >-
+      One of the 43+ news organizations, blogs, or agencies whose content is aggregated
+      by SNAPI. Examples include NASA, SpaceX, Reuters, NASASpaceflight, and Spaceflight Now.
+    tags:
+      - Source
+
+  - term: Launch Library 2
+    definition: >-
+      An external database (The Space Devs) that catalogs all space launches and events.
+      SNAPI links articles to Launch Library 2 launch and event records via UUIDs and IDs.
+    tags:
+      - Integration
+      - External Service
+
+  - term: Launch Reference
+    definition: >-
+      A linking object within a SNAPI article or blog that connects the content to a
+      specific launch record in Launch Library 2, identified by a UUID.
+    tags:
+      - Data Model
+      - Integration
+
+  - term: Event Reference
+    definition: >-
+      A linking object within a SNAPI article or blog that connects the content to a
+      specific spaceflight event record in Launch Library 2, identified by an integer ID.
+    tags:
+      - Data Model
+      - Integration
+
+  - term: Featured
+    definition: >-
+      A boolean flag on articles and blogs indicating that the item has been editorially
+      selected for prominence or highlighting by the SNAPI team.
+    tags:
+      - Metadata
+
+  - term: Pagination
+    definition: >-
+      SNAPI uses limit/offset pagination. Responses include count (total results), next
+      (URL for next page), and previous (URL for prior page) alongside a results array.
+    tags:
+      - API Behavior
+
+  - term: SNAPI
+    definition: >-
+      The common abbreviation for the Spaceflight News API, maintained by The Space Devs
+      community alongside Launch Library 2.
+    tags:
+      - Identity
+
+  - term: The Space Devs
+    definition: >-
+      The open-source community group that maintains the Spaceflight News API (SNAPI) and
+      Launch Library 2, providing free spaceflight data APIs to the public.
+    tags:
+      - Organization
