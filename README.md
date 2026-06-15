@@ -1,55 +1,63 @@
-# Spaceflight News API
+# Spaceflight News API (spaceflight-news-api)
 
-The Spaceflight News API (SNAPI) is a free, open REST API that aggregates spaceflight news,
-blogs, and mission reports from over 43 sources including NASA, SpaceX, Reuters, NASASpaceflight,
-and Spaceflight Now. It provides paginated access to articles, blogs, and reports with
-integration to Launch Library 2 for linking news to specific launches and events.
+The Spaceflight News API (SNAPI) is a free, open REST API that aggregates space-related news, blogs, and reports from over 43 sources including NASA, SpaceX, Reuters, NASASpaceflight, and Spaceflight Now. It provides paginated access to articles, blogs, and reports with integration to Launch Library 2 for linking news to specific launches and events.
 
-## Artifacts
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/spaceflight-news-api/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/spaceflight-news-api/refs/heads/main/apis.yml)
 
-### OpenAPI Specs
+## Scope
 
-- [Spaceflight News API OpenAPI](openapi/spaceflight-news-api-openapi.yml)
+- **Type:** Index
 
-### Spectral Rules
+## Tags
 
-- [Spaceflight News API Rules](rules/spaceflight-news-api-rules.yml)
+- News
+- Space
+- Spaceflight
+- Media
 
-### Capabilities
+## Timestamps
 
-- [Space News Monitoring](capabilities/space-news-monitoring.yaml) — Workflow for monitoring and aggregating spaceflight news
+- **Created:** 2024-11-07
+- **Modified:** 2026-05-19
 
-**Shared Definitions**
-- [Spaceflight News API](capabilities/shared/spaceflight-news-api.yaml)
+## APIs
 
-### JSON Schema
+### Spaceflight News API
 
-- [Article Schema](json-schema/spaceflight-news-api-article-schema.json)
+REST API providing access to spaceflight news, blogs, and reports aggregated from over 43 sources. Supports pagination, filtering by news site, and linking articles to Launch Library 2 launches and events. No authentication required.
 
-### JSON Structure
+- **Human URL:** [https://www.spaceflightnewsapi.net](https://www.spaceflightnewsapi.net)
+- **Base URL:** `https://api.spaceflightnewsapi.net/v4`
 
-- [Article Structure](json-structure/spaceflight-news-api-article-structure.json)
+#### Tags
 
-### JSON-LD
+- News
+- Space
+- Spaceflight
+- Media
 
-- [Spaceflight News API Context](json-ld/spaceflight-news-api-context.jsonld)
+#### Properties
 
-### Examples
+- [Documentation](https://www.spaceflightnewsapi.net)
+- [Swagger U I](https://api.spaceflightnewsapi.net/v4/docs/)
+- [GitHub Repository](https://github.com/thespacedevs/spaceflightnewsapi)
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/spaceflight-news-api/refs/heads/main/openapi/spaceflight-news-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Spectral Rules](https://raw.githubusercontent.com/api-evangelist/spaceflight-news-api/refs/heads/main/rules/spaceflight-news-api-rules.yml)
+- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/spaceflight-news-api/refs/heads/main/json-schema/spaceflight-news-api-article-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Structure](https://raw.githubusercontent.com/api-evangelist/spaceflight-news-api/refs/heads/main/json-structure/spaceflight-news-api-article-structure.json)
+- [J S O N L D Context](https://raw.githubusercontent.com/api-evangelist/spaceflight-news-api/refs/heads/main/json-ld/spaceflight-news-api-context.jsonld)
+- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/spaceflight-news-api/refs/heads/main/vocabulary/spaceflight-news-api-vocabulary.yml)
+- [Postman Collection](collections/spaceflight-news-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/spaceflight-news-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
-- [List Articles Example](examples/spaceflight-news-api-list-articles-example.json)
-
-### Vocabulary
-
-- [Spaceflight News API Vocabulary](vocabulary/spaceflight-news-api-vocabulary.yml)
-
-## Links
+## Common Properties
 
 - [Website](https://www.spaceflightnewsapi.net)
-- [API Documentation](https://api.spaceflightnewsapi.net/v4/docs/)
-- [GitHub](https://github.com/thespacedevs/spaceflightnewsapi)
-- [Discord Support](https://discord.gg/thespacedevs)
+- [Documentation](https://api.spaceflightnewsapi.net/v4/docs/)
+- [Git Hub](https://github.com/thespacedevs/spaceflightnewsapi)
+- [Support](https://discord.gg/thespacedevs)
 
 ## Maintainers
 
-**FN:** Kin Lane  
+**FN:** Kin Lane
 **Email:** kin@apievangelist.com

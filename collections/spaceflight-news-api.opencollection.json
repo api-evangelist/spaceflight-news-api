@@ -1,0 +1,251 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spaceflight News API",
+    "version": "4.30.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Articles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spaceflightnewsapi.net/v4/articles/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (default 10, max 100)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Filter articles whose title or summary contain the search term"
+              },
+              {
+                "name": "news_site",
+                "value": "",
+                "type": "query",
+                "description": "Filter articles by news site name (e.g., NASA, SpaceX)"
+              },
+              {
+                "name": "launch",
+                "value": "",
+                "type": "query",
+                "description": "Filter articles linked to a specific Launch Library 2 launch UUID"
+              },
+              {
+                "name": "event",
+                "value": "",
+                "type": "query",
+                "description": "Filter articles linked to a specific Launch Library 2 event ID"
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Sort field. Prefix with - for descending order (e.g., -published_at)"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of spaceflight news articles aggregated from over 43 sources. Results are ordered by publication date descending. Supports filtering by news site and searching by title or summary keywords."
+        },
+        {
+          "info": {
+            "name": "Get Article",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spaceflightnewsapi.net/v4/articles/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the article"
+              }
+            ]
+          },
+          "docs": "Returns a single spaceflight news article by its unique ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Blogs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Blogs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spaceflightnewsapi.net/v4/blogs/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (default 10, max 100)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Filter blogs by title or summary keywords"
+              },
+              {
+                "name": "news_site",
+                "value": "",
+                "type": "query",
+                "description": "Filter blogs by news site name"
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Sort field. Prefix with - for descending order"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of spaceflight blog posts from various space news sources. Blog posts typically provide more in-depth coverage than news articles."
+        },
+        {
+          "info": {
+            "name": "Get Blog",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spaceflightnewsapi.net/v4/blogs/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the blog post"
+              }
+            ]
+          },
+          "docs": "Returns a single blog post by its unique ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spaceflightnewsapi.net/v4/reports/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (default 10, max 100)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Filter reports by title or summary keywords"
+              },
+              {
+                "name": "news_site",
+                "value": "",
+                "type": "query",
+                "description": "Filter reports by news site or agency name"
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Sort field. Prefix with - for descending order"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of spaceflight mission reports. Reports are typically formal publications from space agencies documenting mission data and outcomes."
+        },
+        {
+          "info": {
+            "name": "Get Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spaceflightnewsapi.net/v4/reports/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the report"
+              }
+            ]
+          },
+          "docs": "Returns a single mission report by its unique ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get API Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spaceflightnewsapi.net/v4/info/"
+          },
+          "docs": "Returns metadata about the API including the current version and list of supported news sources"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
