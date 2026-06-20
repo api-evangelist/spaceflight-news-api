@@ -6,7 +6,7 @@ description: >-
   over 43 sources including NASA, SpaceX, Reuters, NASASpaceflight, and Spaceflight Now. It provides paginated access to
   articles, blogs, and reports with integration to Launch Library 2 for linking news to specific launches and events.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - News
   - Space
