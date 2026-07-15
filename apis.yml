@@ -55,6 +55,8 @@ apis:
           https://raw.githubusercontent.com/api-evangelist/spaceflight-news-api/refs/heads/main/vocabulary/spaceflight-news-api-vocabulary.yml
         type: Vocabulary
 common:
+  - type: AgenticAccess
+    url: agentic-access/spaceflight-news-api-agentic-access.yml
   - type: DomainSecurity
     url: security/spaceflight-news-api-domain-security.yml
   - type: Website
