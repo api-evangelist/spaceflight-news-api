@@ -1,0 +1,165 @@
+openapi: 3.0.3
+info:
+  title: Spaceflight News Articles Reports API
+  description: The Spaceflight News API (SNAPI) is a free, open REST API aggregating space-related news, blogs, and reports from over 43 sources including NASA, SpaceX, Reuters, NASASpaceflight, and Spaceflight Now. It provides paginated access to articles, blogs, and reports, with integration to Launch Library 2 for linking content to specific launches and events. No authentication is required.
+  version: 4.30.2
+  contact:
+    name: The Space Devs
+    url: https://discord.gg/thespacedevs
+  license:
+    name: BSD 2-Clause
+    url: https://opensource.org/licenses/BSD-2-Clause
+servers:
+- url: https://api.spaceflightnewsapi.net/v4
+  description: Spaceflight News API v4 production server
+tags:
+- name: Reports
+  description: Space mission report operations
+paths:
+  /reports/:
+    get:
+      operationId: listReports
+      summary: List Reports
+      description: Returns a paginated list of spaceflight mission reports. Reports are typically formal publications from space agencies documenting mission data and outcomes.
+      tags:
+      - Reports
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page (default 10, max 100)
+        required: false
+        schema:
+          type: integer
+          default: 10
+          maximum: 100
+      - name: offset
+        in: query
+        description: The initial index from which to return the results
+        required: false
+        schema:
+          type: integer
+          default: 0
+      - name: search
+        in: query
+        description: Filter reports by title or summary keywords
+        required: false
+        schema:
+          type: string
+      - name: news_site
+        in: query
+        description: Filter reports by news site or agency name
+        required: false
+        schema:
+          type: string
+      - name: ordering
+        in: query
+        description: Sort field. Prefix with - for descending order
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with paginated report list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedReportList'
+  /reports/{id}/:
+    get:
+      operationId: getReport
+      summary: Get Report
+      description: Returns a single mission report by its unique ID
+      tags:
+      - Reports
+      parameters:
+      - name: id
+        in: path
+        description: Unique identifier of the report
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response with report details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Report'
+        '404':
+          description: Report not found
+components:
+  schemas:
+    Report:
+      type: object
+      description: A formal spaceflight mission report from a space agency or organization
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the report
+        title:
+          type: string
+          description: Title of the mission report
+        authors:
+          type: array
+          description: List of authors or organizations who produced this report
+          items:
+            $ref: '#/components/schemas/Author'
+        url:
+          type: string
+          format: uri
+          description: Link to the full report
+        image_url:
+          type: string
+          format: uri
+          description: URL of an associated image
+        news_site:
+          type: string
+          description: Name of the publishing agency or organization
+        summary:
+          type: string
+          description: Brief summary of the report content
+        published_at:
+          type: string
+          format: date-time
+          description: ISO 8601 timestamp of publication
+        updated_at:
+          type: string
+          format: date-time
+          description: ISO 8601 timestamp of the last update
+    PaginatedReportList:
+      type: object
+      description: Paginated list of spaceflight mission reports
+      properties:
+        count:
+          type: integer
+          description: Total number of reports available
+        next:
+          type: string
+          format: uri
+          nullable: true
+          description: URL for the next page of results
+        previous:
+          type: string
+          format: uri
+          nullable: true
+          description: URL for the previous page of results
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Report'
+    Author:
+      type: object
+      description: An author who contributed to an article, blog, or report
+      properties:
+        name:
+          type: string
+          description: Full name of the author
+          example: Sarah Johnson
+        socials:
+          type: object
+          description: Social media links for the author
+          additionalProperties:
+            type: string
+externalDocs:
+  description: Official Spaceflight News API Documentation
+  url: https://api.spaceflightnewsapi.net/v4/docs/

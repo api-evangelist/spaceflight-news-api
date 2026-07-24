@@ -1,0 +1,56 @@
+openapi: 3.0.3
+info:
+  title: Spaceflight News Articles Info API
+  description: The Spaceflight News API (SNAPI) is a free, open REST API aggregating space-related news, blogs, and reports from over 43 sources including NASA, SpaceX, Reuters, NASASpaceflight, and Spaceflight Now. It provides paginated access to articles, blogs, and reports, with integration to Launch Library 2 for linking content to specific launches and events. No authentication is required.
+  version: 4.30.2
+  contact:
+    name: The Space Devs
+    url: https://discord.gg/thespacedevs
+  license:
+    name: BSD 2-Clause
+    url: https://opensource.org/licenses/BSD-2-Clause
+servers:
+- url: https://api.spaceflightnewsapi.net/v4
+  description: Spaceflight News API v4 production server
+tags:
+- name: Info
+  description: API metadata operations
+paths:
+  /info/:
+    get:
+      operationId: getInfo
+      summary: Get API Info
+      description: Returns metadata about the API including the current version and list of supported news sources
+      tags:
+      - Info
+      responses:
+        '200':
+          description: Successful response with API metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiInfo'
+components:
+  schemas:
+    ApiInfo:
+      type: object
+      description: Metadata about the Spaceflight News API
+      properties:
+        version:
+          type: string
+          description: Current API version
+          example: 4.30.2
+        news_sites:
+          type: array
+          description: List of news source names aggregated by the API
+          items:
+            type: string
+          example:
+          - NASA
+          - SpaceX
+          - Reuters
+          - NASASpaceflight
+          - Spaceflight Now
+externalDocs:
+  description: Official Spaceflight News API Documentation
+  url: https://api.spaceflightnewsapi.net/v4/docs/
