@@ -1,0 +1,549 @@
+openapi: 3.0.3
+info:
+  title: Spaceflight News API
+  description: >-
+    The Spaceflight News API (SNAPI) is a free, open REST API aggregating space-related
+    news, blogs, and reports from over 43 sources including NASA, SpaceX, Reuters,
+    NASASpaceflight, and Spaceflight Now. It provides paginated access to articles,
+    blogs, and reports, with integration to Launch Library 2 for linking content to
+    specific launches and events. No authentication is required.
+  version: "4.30.2"
+  contact:
+    name: The Space Devs
+    url: https://discord.gg/thespacedevs
+  license:
+    name: BSD 2-Clause
+    url: https://opensource.org/licenses/BSD-2-Clause
+externalDocs:
+  description: Official Spaceflight News API Documentation
+  url: https://api.spaceflightnewsapi.net/v4/docs/
+servers:
+  - url: https://api.spaceflightnewsapi.net/v4
+    description: Spaceflight News API v4 production server
+tags:
+  - name: Articles
+    description: Space news article operations
+  - name: Blogs
+    description: Space blog post operations
+  - name: Reports
+    description: Space mission report operations
+  - name: Info
+    description: API metadata operations
+paths:
+  /articles/:
+    get:
+      operationId: listArticles
+      summary: List Articles
+      description: >-
+        Returns a paginated list of spaceflight news articles aggregated from over 43 sources.
+        Results are ordered by publication date descending. Supports filtering by news site
+        and searching by title or summary keywords.
+      tags:
+        - Articles
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page (default 10, max 100)
+          required: false
+          schema:
+            type: integer
+            default: 10
+            maximum: 100
+        - name: offset
+          in: query
+          description: The initial index from which to return the results
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: search
+          in: query
+          description: Filter articles whose title or summary contain the search term
+          required: false
+          schema:
+            type: string
+        - name: news_site
+          in: query
+          description: Filter articles by news site name (e.g., NASA, SpaceX)
+          required: false
+          schema:
+            type: string
+        - name: launch
+          in: query
+          description: Filter articles linked to a specific Launch Library 2 launch UUID
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - name: event
+          in: query
+          description: Filter articles linked to a specific Launch Library 2 event ID
+          required: false
+          schema:
+            type: integer
+        - name: ordering
+          in: query
+          description: Sort field. Prefix with - for descending order (e.g., -published_at)
+          required: false
+          schema:
+            type: string
+            enum:
+              - published_at
+              - -published_at
+              - updated_at
+              - -updated_at
+      responses:
+        '200':
+          description: Successful response with paginated article list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedArticleList'
+  /articles/{id}/:
+    get:
+      operationId: getArticle
+      summary: Get Article
+      description: Returns a single spaceflight news article by its unique ID
+      tags:
+        - Articles
+      parameters:
+        - name: id
+          in: path
+          description: Unique identifier of the article
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response with article details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Article'
+        '404':
+          description: Article not found
+  /blogs/:
+    get:
+      operationId: listBlogs
+      summary: List Blogs
+      description: >-
+        Returns a paginated list of spaceflight blog posts from various space news sources.
+        Blog posts typically provide more in-depth coverage than news articles.
+      tags:
+        - Blogs
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page (default 10, max 100)
+          required: false
+          schema:
+            type: integer
+            default: 10
+            maximum: 100
+        - name: offset
+          in: query
+          description: The initial index from which to return the results
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: search
+          in: query
+          description: Filter blogs by title or summary keywords
+          required: false
+          schema:
+            type: string
+        - name: news_site
+          in: query
+          description: Filter blogs by news site name
+          required: false
+          schema:
+            type: string
+        - name: ordering
+          in: query
+          description: Sort field. Prefix with - for descending order
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with paginated blog list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedBlogList'
+  /blogs/{id}/:
+    get:
+      operationId: getBlog
+      summary: Get Blog
+      description: Returns a single blog post by its unique ID
+      tags:
+        - Blogs
+      parameters:
+        - name: id
+          in: path
+          description: Unique identifier of the blog post
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response with blog post details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Blog'
+        '404':
+          description: Blog post not found
+  /reports/:
+    get:
+      operationId: listReports
+      summary: List Reports
+      description: >-
+        Returns a paginated list of spaceflight mission reports. Reports are typically
+        formal publications from space agencies documenting mission data and outcomes.
+      tags:
+        - Reports
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page (default 10, max 100)
+          required: false
+          schema:
+            type: integer
+            default: 10
+            maximum: 100
+        - name: offset
+          in: query
+          description: The initial index from which to return the results
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: search
+          in: query
+          description: Filter reports by title or summary keywords
+          required: false
+          schema:
+            type: string
+        - name: news_site
+          in: query
+          description: Filter reports by news site or agency name
+          required: false
+          schema:
+            type: string
+        - name: ordering
+          in: query
+          description: Sort field. Prefix with - for descending order
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with paginated report list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedReportList'
+  /reports/{id}/:
+    get:
+      operationId: getReport
+      summary: Get Report
+      description: Returns a single mission report by its unique ID
+      tags:
+        - Reports
+      parameters:
+        - name: id
+          in: path
+          description: Unique identifier of the report
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response with report details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Report'
+        '404':
+          description: Report not found
+  /info/:
+    get:
+      operationId: getInfo
+      summary: Get API Info
+      description: Returns metadata about the API including the current version and list of supported news sources
+      tags:
+        - Info
+      responses:
+        '200':
+          description: Successful response with API metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiInfo'
+components:
+  schemas:
+    PaginatedArticleList:
+      type: object
+      description: Paginated list of spaceflight news articles
+      properties:
+        count:
+          type: integer
+          description: Total number of articles available
+          example: 85000
+        next:
+          type: string
+          format: uri
+          nullable: true
+          description: URL for the next page of results
+        previous:
+          type: string
+          format: uri
+          nullable: true
+          description: URL for the previous page of results
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Article'
+    PaginatedBlogList:
+      type: object
+      description: Paginated list of spaceflight blog posts
+      properties:
+        count:
+          type: integer
+          description: Total number of blogs available
+        next:
+          type: string
+          format: uri
+          nullable: true
+          description: URL for the next page of results
+        previous:
+          type: string
+          format: uri
+          nullable: true
+          description: URL for the previous page of results
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Blog'
+    PaginatedReportList:
+      type: object
+      description: Paginated list of spaceflight mission reports
+      properties:
+        count:
+          type: integer
+          description: Total number of reports available
+        next:
+          type: string
+          format: uri
+          nullable: true
+          description: URL for the next page of results
+        previous:
+          type: string
+          format: uri
+          nullable: true
+          description: URL for the previous page of results
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Report'
+    Article:
+      type: object
+      description: A spaceflight news article aggregated from a third-party news source
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the article
+          example: 25801
+        title:
+          type: string
+          description: Headline of the news article
+          example: NASA adjusts ISS flight schedule for upcoming missions
+        authors:
+          type: array
+          description: List of authors who contributed to this article
+          items:
+            $ref: '#/components/schemas/Author'
+        url:
+          type: string
+          format: uri
+          description: Link to the full article on the original publication site
+          example: https://www.nasa.gov/article/nasa-adjusts-iss-schedule
+        image_url:
+          type: string
+          format: uri
+          description: URL of the featured image for this article
+          example: https://www.nasa.gov/images/article-image.jpg
+        news_site:
+          type: string
+          description: Name of the publishing news organization
+          example: NASA
+        summary:
+          type: string
+          description: Brief summary or excerpt of the article content
+          example: After reviewing the ISS flight schedule, NASA and its partners are adjusting launch opportunities.
+        published_at:
+          type: string
+          format: date-time
+          description: ISO 8601 timestamp of when the article was originally published
+          example: "2026-04-15T14:30:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          description: ISO 8601 timestamp of the last update to this record
+          example: "2026-04-15T16:00:00Z"
+        featured:
+          type: boolean
+          description: Whether this article is featured/highlighted
+          example: false
+        launches:
+          type: array
+          description: Launch Library 2 launches related to this article
+          items:
+            $ref: '#/components/schemas/LaunchRef'
+        events:
+          type: array
+          description: Launch Library 2 events related to this article
+          items:
+            $ref: '#/components/schemas/EventRef'
+    Blog:
+      type: object
+      description: A spaceflight blog post providing in-depth coverage of space topics
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the blog post
+        title:
+          type: string
+          description: Title of the blog post
+        authors:
+          type: array
+          description: List of authors who contributed to this blog post
+          items:
+            $ref: '#/components/schemas/Author'
+        url:
+          type: string
+          format: uri
+          description: Link to the full blog post
+        image_url:
+          type: string
+          format: uri
+          description: URL of the featured image
+        news_site:
+          type: string
+          description: Name of the publishing organization or blog
+        summary:
+          type: string
+          description: Brief summary or excerpt of the blog post
+        published_at:
+          type: string
+          format: date-time
+          description: ISO 8601 timestamp of when the post was published
+        updated_at:
+          type: string
+          format: date-time
+          description: ISO 8601 timestamp of the last update
+        featured:
+          type: boolean
+          description: Whether this blog post is featured
+        launches:
+          type: array
+          description: Related Launch Library 2 launches
+          items:
+            $ref: '#/components/schemas/LaunchRef'
+        events:
+          type: array
+          description: Related Launch Library 2 events
+          items:
+            $ref: '#/components/schemas/EventRef'
+    Report:
+      type: object
+      description: A formal spaceflight mission report from a space agency or organization
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the report
+        title:
+          type: string
+          description: Title of the mission report
+        authors:
+          type: array
+          description: List of authors or organizations who produced this report
+          items:
+            $ref: '#/components/schemas/Author'
+        url:
+          type: string
+          format: uri
+          description: Link to the full report
+        image_url:
+          type: string
+          format: uri
+          description: URL of an associated image
+        news_site:
+          type: string
+          description: Name of the publishing agency or organization
+        summary:
+          type: string
+          description: Brief summary of the report content
+        published_at:
+          type: string
+          format: date-time
+          description: ISO 8601 timestamp of publication
+        updated_at:
+          type: string
+          format: date-time
+          description: ISO 8601 timestamp of the last update
+    Author:
+      type: object
+      description: An author who contributed to an article, blog, or report
+      properties:
+        name:
+          type: string
+          description: Full name of the author
+          example: Sarah Johnson
+        socials:
+          type: object
+          description: Social media links for the author
+          additionalProperties:
+            type: string
+    LaunchRef:
+      type: object
+      description: Reference to a Launch Library 2 launch linked to a news item
+      properties:
+        launch_id:
+          type: string
+          format: uuid
+          description: Unique Launch Library 2 launch UUID
+        provider:
+          type: string
+          description: Launch service provider name
+    EventRef:
+      type: object
+      description: Reference to a Launch Library 2 event linked to a news item
+      properties:
+        event_id:
+          type: integer
+          description: Unique Launch Library 2 event ID
+        provider:
+          type: string
+          description: Event provider name
+    ApiInfo:
+      type: object
+      description: Metadata about the Spaceflight News API
+      properties:
+        version:
+          type: string
+          description: Current API version
+          example: "4.30.2"
+        news_sites:
+          type: array
+          description: List of news source names aggregated by the API
+          items:
+            type: string
+          example:
+            - NASA
+            - SpaceX
+            - Reuters
+            - NASASpaceflight
+            - Spaceflight Now
