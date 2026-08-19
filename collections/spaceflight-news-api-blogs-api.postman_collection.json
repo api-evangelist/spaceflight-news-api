@@ -1,0 +1,285 @@
+{
+  "item": [
+    {
+      "id": "e5f9509a-fd5d-4cb6-b522-28bb77670b11",
+      "name": "Blogs",
+      "description": {
+        "content": "Space blog post operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "47beae3d-37f0-455b-a9b7-66f97f06b759",
+          "name": "List Blogs",
+          "request": {
+            "name": "List Blogs",
+            "description": {
+              "content": "Returns a paginated list of spaceflight blog posts from various space news sources. Blog posts typically provide more in-depth coverage than news articles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "blogs",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of results to return per page (default 10, max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The initial index from which to return the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Filter blogs by title or summary keywords"
+                },
+                {
+                  "disabled": false,
+                  "key": "news_site",
+                  "value": "<string>",
+                  "description": "Filter blogs by news site name"
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Sort field. Prefix with - for descending order"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a7cf2f4-eb85-4603-9a8a-a2a8d1eb7883",
+              "name": "Successful response with paginated blog list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "blogs",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "news_site",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 210,\n  \"next\": \"http://itQHSXEDJZFHukcqMWWofDRkVEcyr.egctXP+Iny+Mb6nTZc6nbNOzZJjYvJLFlM9CquMS,iqJYdpEcFqbF0t9IP\",\n  \"previous\": \"http://MVpOGyNxCHJuaDjhWiehozmgKbjAFHM.dtwAnZJTCD+Nyee-p\",\n  \"results\": [\n    {\n      \"id\": 7136,\n      \"title\": \"string\",\n      \"authors\": [\n        {\n          \"name\": \"Sarah Johnson\",\n          \"socials\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"name\": \"Sarah Johnson\",\n          \"socials\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        }\n      ],\n      \"url\": \"http://sLdVpKH.kpfx5LHc+pvYDZ+ZUHr3EZW5kQ4PJlvT.UomU3BU\",\n      \"image_url\": \"https://zgiJQlfJJRBwocIsipQXTqY.zrPJ-kOLJyoNwd4ARa+\",\n      \"news_site\": \"string\",\n      \"summary\": \"string\",\n      \"published_at\": \"1948-03-17T19:09:39.814Z\",\n      \"updated_at\": \"1984-03-05T22:04:17.397Z\",\n      \"featured\": false,\n      \"launches\": [\n        {\n          \"launch_id\": \"6263ea12-4116-8d9b-81a9-fe1253c3e65e\",\n          \"provider\": \"string\"\n        },\n        {\n          \"launch_id\": \"2e6435de-6358-b7dd-381b-5300a2a6e3b9\",\n          \"provider\": \"string\"\n        }\n      ],\n      \"events\": [\n        {\n          \"event_id\": 597,\n          \"provider\": \"string\"\n        },\n        {\n          \"event_id\": 9697,\n          \"provider\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": 2466,\n      \"title\": \"string\",\n      \"authors\": [\n        {\n          \"name\": \"Sarah Johnson\",\n          \"socials\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"name\": \"Sarah Johnson\",\n          \"socials\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        }\n      ],\n      \"url\": \"https://XzHzMjBXNvNFOKPhvMoUnlAESEPjQNT.flaO3DtC5BYUOiTDPQZImLkHV+9dd.ahPhU\",\n      \"image_url\": \"https://tgYGHxBFSMHdnTKK.zqMZRtypTX,Ah+BvSBqEmtm9zUDZP4lgI7WbmKE16iiL,MisFHry.w5Ud3co4lO4HNDzI4M8LYV\",\n      \"news_site\": \"string\",\n      \"summary\": \"string\",\n      \"published_at\": \"1963-11-23T08:17:41.078Z\",\n      \"updated_at\": \"1958-08-25T06:48:47.466Z\",\n      \"featured\": true,\n      \"launches\": [\n        {\n          \"launch_id\": \"010335db-ac35-cc06-8427-fa17cfbdd018\",\n          \"provider\": \"string\"\n        },\n        {\n          \"launch_id\": \"49fd950b-b0fa-9a6a-ee5e-164799571583\",\n          \"provider\": \"string\"\n        }\n      ],\n      \"events\": [\n        {\n          \"event_id\": 2487,\n          \"provider\": \"string\"\n        },\n        {\n          \"event_id\": 82,\n          \"provider\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6a8b545-ee81-440a-a9a0-462eb8caced7",
+          "name": "Get Blog",
+          "request": {
+            "name": "Get Blog",
+            "description": {
+              "content": "Returns a single blog post by its unique ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "blogs",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the blog post"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13616aee-4fd4-44b7-a38f-3d390fdf893a",
+              "name": "Successful response with blog post details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "blogs",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the blog post"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7974,\n  \"title\": \"string\",\n  \"authors\": [\n    {\n      \"name\": \"Sarah Johnson\",\n      \"socials\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    {\n      \"name\": \"Sarah Johnson\",\n      \"socials\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    }\n  ],\n  \"url\": \"https://NHsgAsREsNrjFnlxpMLfGlps.judvw7JDPj7zvddpJQkiyQQ0V30D30PvJhaVEDkEVmQgYzUoi7sUaF\",\n  \"image_url\": \"http://ICubUXSeAyMYUxLRSzCto.tvzjmB2gWpmPGxjRCDkXriAwKgZL-WnypfBn0IdaeK7P6pEMfh3ob,5DA3g\",\n  \"news_site\": \"string\",\n  \"summary\": \"string\",\n  \"published_at\": \"1963-01-18T08:53:29.187Z\",\n  \"updated_at\": \"1955-12-04T19:12:19.716Z\",\n  \"featured\": true,\n  \"launches\": [\n    {\n      \"launch_id\": \"85d78282-f8f9-a9a3-f373-1f17b306f100\",\n      \"provider\": \"string\"\n    },\n    {\n      \"launch_id\": \"762b4a41-b41e-47dd-1cc4-0d058e2aa362\",\n      \"provider\": \"string\"\n    }\n  ],\n  \"events\": [\n    {\n      \"event_id\": 9106,\n      \"provider\": \"string\"\n    },\n    {\n      \"event_id\": 8118,\n      \"provider\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a1670cc-bbd6-4797-8da7-f7803fbe3aa1",
+              "name": "Blog post not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "blogs",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the blog post"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spaceflightnewsapi.net/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e7bf8fbe-9362-4909-81ba-3e105dcf0e38",
+    "name": "Spaceflight News Articles Blogs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Spaceflight News API (SNAPI) is a free, open REST API aggregating space-related news, blogs, and reports from over 43 sources including NASA, SpaceX, Reuters, NASASpaceflight, and Spaceflight Now. It provides paginated access to articles, blogs, and reports, with integration to Launch Library 2 for linking content to specific launches and events. No authentication is required.\n\nContact Support:\n Name: The Space Devs",
+      "type": "text/plain"
+    }
+  }
+}

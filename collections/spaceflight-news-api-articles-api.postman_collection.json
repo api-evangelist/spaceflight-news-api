@@ -1,0 +1,305 @@
+{
+  "item": [
+    {
+      "id": "7bf61f7e-fd22-4e46-a07b-1a0e01e394de",
+      "name": "Articles",
+      "description": {
+        "content": "Space news article operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c0f054e4-e317-4666-9a58-c21500a68a3c",
+          "name": "List Articles",
+          "request": {
+            "name": "List Articles",
+            "description": {
+              "content": "Returns a paginated list of spaceflight news articles aggregated from over 43 sources. Results are ordered by publication date descending. Supports filtering by news site and searching by title or summary keywords.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "articles",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of results to return per page (default 10, max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The initial index from which to return the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Filter articles whose title or summary contain the search term"
+                },
+                {
+                  "disabled": false,
+                  "key": "news_site",
+                  "value": "<string>",
+                  "description": "Filter articles by news site name (e.g., NASA, SpaceX)"
+                },
+                {
+                  "disabled": false,
+                  "key": "launch",
+                  "value": "<uuid>",
+                  "description": "Filter articles linked to a specific Launch Library 2 launch UUID"
+                },
+                {
+                  "disabled": false,
+                  "key": "event",
+                  "value": "<integer>",
+                  "description": "Filter articles linked to a specific Launch Library 2 event ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Sort field. Prefix with - for descending order (e.g., -published_at)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b9ddd12-7f5e-4425-862a-63a4d535c7ab",
+              "name": "Successful response with paginated article list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "news_site",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "launch",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "event",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 85000,\n  \"next\": \"http://gDEyLPJgWJgRLQy.ypfSZHrK1rxdp.QlsB3UyWw.KjdQgbtdsmf+Ps\",\n  \"previous\": \"https://vLPm.jfwbQ5aDMByAjwTtthkW,\",\n  \"results\": [\n    {\n      \"id\": 25801,\n      \"title\": \"NASA adjusts ISS flight schedule for upcoming missions\",\n      \"authors\": [\n        {\n          \"name\": \"Sarah Johnson\",\n          \"socials\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        },\n        {\n          \"name\": \"Sarah Johnson\",\n          \"socials\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        }\n      ],\n      \"url\": \"https://www.nasa.gov/article/nasa-adjusts-iss-schedule\",\n      \"image_url\": \"https://www.nasa.gov/images/article-image.jpg\",\n      \"news_site\": \"NASA\",\n      \"summary\": \"After reviewing the ISS flight schedule, NASA and its partners are adjusting launch opportunities.\",\n      \"published_at\": \"2026-04-15T14:30:00Z\",\n      \"updated_at\": \"2026-04-15T16:00:00Z\",\n      \"featured\": false,\n      \"launches\": [\n        {\n          \"launch_id\": \"1637749d-3ea4-e6eb-fbaa-aeb12756b2d0\",\n          \"provider\": \"string\"\n        },\n        {\n          \"launch_id\": \"ea4a51c9-c2e2-73e7-0d79-db2c11c814f4\",\n          \"provider\": \"string\"\n        }\n      ],\n      \"events\": [\n        {\n          \"event_id\": 2672,\n          \"provider\": \"string\"\n        },\n        {\n          \"event_id\": 4054,\n          \"provider\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": 25801,\n      \"title\": \"NASA adjusts ISS flight schedule for upcoming missions\",\n      \"authors\": [\n        {\n          \"name\": \"Sarah Johnson\",\n          \"socials\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"name\": \"Sarah Johnson\",\n          \"socials\": {\n            \"key_0\": \"string\"\n          }\n        }\n      ],\n      \"url\": \"https://www.nasa.gov/article/nasa-adjusts-iss-schedule\",\n      \"image_url\": \"https://www.nasa.gov/images/article-image.jpg\",\n      \"news_site\": \"NASA\",\n      \"summary\": \"After reviewing the ISS flight schedule, NASA and its partners are adjusting launch opportunities.\",\n      \"published_at\": \"2026-04-15T14:30:00Z\",\n      \"updated_at\": \"2026-04-15T16:00:00Z\",\n      \"featured\": false,\n      \"launches\": [\n        {\n          \"launch_id\": \"4c28e796-eefc-826a-9b75-71375904fab8\",\n          \"provider\": \"string\"\n        },\n        {\n          \"launch_id\": \"4496a42d-aba7-4dba-3365-fe0caf0cc8a6\",\n          \"provider\": \"string\"\n        }\n      ],\n      \"events\": [\n        {\n          \"event_id\": 4292,\n          \"provider\": \"string\"\n        },\n        {\n          \"event_id\": 8393,\n          \"provider\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5bcb731b-4fc5-4932-ad30-c136a3e6a50b",
+          "name": "Get Article",
+          "request": {
+            "name": "Get Article",
+            "description": {
+              "content": "Returns a single spaceflight news article by its unique ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "articles",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the article"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b3ecc41-c014-4e26-b7cf-73e76a383118",
+              "name": "Successful response with article details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the article"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 25801,\n  \"title\": \"NASA adjusts ISS flight schedule for upcoming missions\",\n  \"authors\": [\n    {\n      \"name\": \"Sarah Johnson\",\n      \"socials\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    {\n      \"name\": \"Sarah Johnson\",\n      \"socials\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    }\n  ],\n  \"url\": \"https://www.nasa.gov/article/nasa-adjusts-iss-schedule\",\n  \"image_url\": \"https://www.nasa.gov/images/article-image.jpg\",\n  \"news_site\": \"NASA\",\n  \"summary\": \"After reviewing the ISS flight schedule, NASA and its partners are adjusting launch opportunities.\",\n  \"published_at\": \"2026-04-15T14:30:00Z\",\n  \"updated_at\": \"2026-04-15T16:00:00Z\",\n  \"featured\": false,\n  \"launches\": [\n    {\n      \"launch_id\": \"c1c8653e-6a37-281e-120d-22a6b1b3b77c\",\n      \"provider\": \"string\"\n    },\n    {\n      \"launch_id\": \"897f66b0-188f-4993-eae2-e7a9e933db77\",\n      \"provider\": \"string\"\n    }\n  ],\n  \"events\": [\n    {\n      \"event_id\": 498,\n      \"provider\": \"string\"\n    },\n    {\n      \"event_id\": 4485,\n      \"provider\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cba6fa45-fc1d-42fa-9bf7-f5da869c8544",
+              "name": "Article not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the article"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spaceflightnewsapi.net/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fafc22e1-1306-41b9-99e7-919fb3f292d8",
+    "name": "Spaceflight News Articles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Spaceflight News API (SNAPI) is a free, open REST API aggregating space-related news, blogs, and reports from over 43 sources including NASA, SpaceX, Reuters, NASASpaceflight, and Spaceflight Now. It provides paginated access to articles, blogs, and reports, with integration to Launch Library 2 for linking content to specific launches and events. No authentication is required.\n\nContact Support:\n Name: The Space Devs",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spaceflight News Articles Info API",
+    "version": "4.30.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get API Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spaceflightnewsapi.net/v4/info/"
+          },
+          "docs": "Returns metadata about the API including the current version and list of supported news sources"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

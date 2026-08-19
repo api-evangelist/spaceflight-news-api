@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spaceflight News Articles API",
+    "version": "4.30.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Articles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spaceflightnewsapi.net/v4/articles/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (default 10, max 100)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Filter articles whose title or summary contain the search term"
+              },
+              {
+                "name": "news_site",
+                "value": "",
+                "type": "query",
+                "description": "Filter articles by news site name (e.g., NASA, SpaceX)"
+              },
+              {
+                "name": "launch",
+                "value": "",
+                "type": "query",
+                "description": "Filter articles linked to a specific Launch Library 2 launch UUID"
+              },
+              {
+                "name": "event",
+                "value": "",
+                "type": "query",
+                "description": "Filter articles linked to a specific Launch Library 2 event ID"
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Sort field. Prefix with - for descending order (e.g., -published_at)"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of spaceflight news articles aggregated from over 43 sources. Results are ordered by publication date descending. Supports filtering by news site and searching by title or summary keywords."
+        },
+        {
+          "info": {
+            "name": "Get Article",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spaceflightnewsapi.net/v4/articles/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the article"
+              }
+            ]
+          },
+          "docs": "Returns a single spaceflight news article by its unique ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

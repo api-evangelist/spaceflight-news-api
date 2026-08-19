@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "ecc4da9a-b5d5-4a3b-8ee7-23d61b0deb36",
+      "name": "Info",
+      "description": {
+        "content": "API metadata operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "46be53cb-e537-4f12-bdd8-36f4c392f0fa",
+          "name": "Get API Info",
+          "request": {
+            "name": "Get API Info",
+            "description": {
+              "content": "Returns metadata about the API including the current version and list of supported news sources",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "info",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17c342fe-11f0-4b26-a704-36465ccc3b4a",
+              "name": "Successful response with API metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "info",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"4.30.2\",\n  \"news_sites\": [\n    \"NASA\",\n    \"SpaceX\",\n    \"Reuters\",\n    \"NASASpaceflight\",\n    \"Spaceflight Now\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spaceflightnewsapi.net/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e67fb5fa-db84-439d-b87d-c78d7293f35c",
+    "name": "Spaceflight News Articles Info API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Spaceflight News API (SNAPI) is a free, open REST API aggregating space-related news, blogs, and reports from over 43 sources including NASA, SpaceX, Reuters, NASASpaceflight, and Spaceflight Now. It provides paginated access to articles, blogs, and reports, with integration to Launch Library 2 for linking content to specific launches and events. No authentication is required.\n\nContact Support:\n Name: The Space Devs",
+      "type": "text/plain"
+    }
+  }
+}

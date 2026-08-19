@@ -1,0 +1,285 @@
+{
+  "item": [
+    {
+      "id": "38b462e7-c03f-4804-9242-c7f1147bf360",
+      "name": "Reports",
+      "description": {
+        "content": "Space mission report operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1ab072c3-126a-43a3-b542-d62d754bb758",
+          "name": "List Reports",
+          "request": {
+            "name": "List Reports",
+            "description": {
+              "content": "Returns a paginated list of spaceflight mission reports. Reports are typically formal publications from space agencies documenting mission data and outcomes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reports",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of results to return per page (default 10, max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The initial index from which to return the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Filter reports by title or summary keywords"
+                },
+                {
+                  "disabled": false,
+                  "key": "news_site",
+                  "value": "<string>",
+                  "description": "Filter reports by news site or agency name"
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Sort field. Prefix with - for descending order"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53a646ce-b1bf-46ce-b983-79c207d97254",
+              "name": "Successful response with paginated report list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "news_site",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9505,\n  \"next\": \"https://VKW.zcwcNrrPDMmWgYo8vx,OF6w8YBOEWPUzpJtnuofwXjQbXzwZjIt74rGZjuhrLE-rtK\",\n  \"previous\": \"https://cfecAzXOnhfvnZWmfABfaHW.yzJl.kzafKy6r47pmY,TCkZJREW0ov,9GJhpcrAzj8Q5mqTUlkeXI8du\",\n  \"results\": [\n    {\n      \"id\": 586,\n      \"title\": \"string\",\n      \"authors\": [\n        {\n          \"name\": \"Sarah Johnson\",\n          \"socials\": {\n            \"key_0\": \"string\"\n          }\n        },\n        {\n          \"name\": \"Sarah Johnson\",\n          \"socials\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        }\n      ],\n      \"url\": \"http://miGAYmyMmwaLmFA.btqgsU1h071utyVyW,,zuKS0lIJyn69y3BnFRYuHxstrBN.h9bJ1Eidm6f\",\n      \"image_url\": \"http://tBiNTokZEwFxsHvrucEKTbUIjLIbLyXDX.vqysX9F,-R.CLOSoZtfVVyi,PFfbpy.uRZWcLRql+7R7njiMPfz5KY5ZjdJClfLb+IX\",\n      \"news_site\": \"string\",\n      \"summary\": \"string\",\n      \"published_at\": \"1959-09-29T21:25:07.661Z\",\n      \"updated_at\": \"1949-12-12T23:56:14.545Z\"\n    },\n    {\n      \"id\": 6685,\n      \"title\": \"string\",\n      \"authors\": [\n        {\n          \"name\": \"Sarah Johnson\",\n          \"socials\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"name\": \"Sarah Johnson\",\n          \"socials\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          }\n        }\n      ],\n      \"url\": \"https://fAuoGXVBGBaXGqfWbotuw.adSEloJ-G07xy+d39wD-n.D7GvaZ.,GfFyomhZKQzMdMo+vAkSy3JYD5dR6ITbziZGC7AKO1RFlwUyVTDd\",\n      \"image_url\": \"http://Zn.kmhhK4Og3rHiQFHhb92RfFNbh2RAA8nuM2U-hOakVck9noR8W9\",\n      \"news_site\": \"string\",\n      \"summary\": \"string\",\n      \"published_at\": \"1966-02-23T02:43:04.143Z\",\n      \"updated_at\": \"1948-01-05T22:14:05.012Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "183afd84-adb1-4698-abe3-689018e2dbc2",
+          "name": "Get Report",
+          "request": {
+            "name": "Get Report",
+            "description": {
+              "content": "Returns a single mission report by its unique ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reports",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the report"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c0498bb-4f0a-4c0d-95c8-f9c11cfa2c52",
+              "name": "Successful response with report details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the report"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8083,\n  \"title\": \"string\",\n  \"authors\": [\n    {\n      \"name\": \"Sarah Johnson\",\n      \"socials\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    {\n      \"name\": \"Sarah Johnson\",\n      \"socials\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    }\n  ],\n  \"url\": \"https://O.ovsSkndmpsCqta8qKonefQv7mFCoPwli\",\n  \"image_url\": \"http://tLp.vvwJ0dSZbDauPdBa-64uc1wu2ny4svHtNBZQY3I.OjIGAYx7dEI2c\",\n  \"news_site\": \"string\",\n  \"summary\": \"string\",\n  \"published_at\": \"1953-05-15T05:07:58.425Z\",\n  \"updated_at\": \"2020-07-20T19:46:48.791Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc7ce4b3-efd5-4ab4-b45e-128bab12df64",
+              "name": "Report not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the report"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spaceflightnewsapi.net/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "64d07393-a653-445e-b254-2f7666c12677",
+    "name": "Spaceflight News Articles Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Spaceflight News API (SNAPI) is a free, open REST API aggregating space-related news, blogs, and reports from over 43 sources including NASA, SpaceX, Reuters, NASASpaceflight, and Spaceflight Now. It provides paginated access to articles, blogs, and reports, with integration to Launch Library 2 for linking content to specific launches and events. No authentication is required.\n\nContact Support:\n Name: The Space Devs",
+      "type": "text/plain"
+    }
+  }
+}
