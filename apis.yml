@@ -65,6 +65,8 @@ apis:
   humanURL: https://www.spaceflightnewsapi.net
   baseURL: https://api.spaceflightnewsapi.net/v4
   tags:
+  - Blog
+  tags_raw:
   - Blogs
   properties:
   - type: OpenAPI
