@@ -6,6 +6,18 @@ description: >-
   over 43 sources including NASA, SpaceX, Reuters, NASASpaceflight, and Spaceflight Now. It provides paginated access to
   articles, blogs, and reports with integration to Launch Library 2 for linking news to specific launches and events.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
@@ -155,6 +167,12 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/spaceflight-news-api/refs/heads/main/vocabulary/spaceflight-news-api-vocabulary.yml
 common:
+  - type: IssueTracker
+    url: https://github.com/thespacedevs/spaceflightnewsapi/issues
+  - type: Releases
+    url: https://github.com/thespacedevs/spaceflightnewsapi/releases
+  - type: SecurityPolicy
+    url: https://github.com/TheSpaceDevs/spaceflightnewsapi/blob/main/SECURITY.md
   - type: AgenticAccess
     url: agentic-access/spaceflight-news-api-agentic-access.yml
   - type: DomainSecurity
