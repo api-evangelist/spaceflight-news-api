@@ -15,6 +15,12 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "spaceflight-news-api-articles-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spaceflight-news-api-blogs-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spaceflight-news-api-info-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spaceflight-news-api-reports-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

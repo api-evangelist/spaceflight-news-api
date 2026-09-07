@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Spaceflight News Articles Reports API
   description: The Spaceflight News API (SNAPI) is a free, open REST API aggregating space-related news, blogs, and reports from over 43 sources including NASA, SpaceX, Reuters, NASASpaceflight, and Spaceflight Now. It provides paginated access to articles, blogs, and reports, with integration to Launch Library 2 for linking content to specific launches and events. No authentication is required.
@@ -126,27 +126,6 @@ components:
           type: string
           format: date-time
           description: ISO 8601 timestamp of the last update
-    PaginatedReportList:
-      type: object
-      description: Paginated list of spaceflight mission reports
-      properties:
-        count:
-          type: integer
-          description: Total number of reports available
-        next:
-          type: string
-          format: uri
-          nullable: true
-          description: URL for the next page of results
-        previous:
-          type: string
-          format: uri
-          nullable: true
-          description: URL for the previous page of results
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Report'
     Author:
       type: object
       description: An author who contributed to an article, blog, or report
@@ -160,6 +139,29 @@ components:
           description: Social media links for the author
           additionalProperties:
             type: string
+    PaginatedReportList:
+      type: object
+      description: Paginated list of spaceflight mission reports
+      properties:
+        count:
+          type: integer
+          description: Total number of reports available
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: URL for the next page of results
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: URL for the previous page of results
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Report'
 externalDocs:
   description: Official Spaceflight News API Documentation
   url: https://api.spaceflightnewsapi.net/v4/docs/
