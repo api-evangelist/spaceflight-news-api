@@ -1,10 +1,7 @@
 {
   "provider": "spaceflight-news-api",
   "sources": [
-    "spaceflight-news-api-articles-api-openapi.yml",
-    "spaceflight-news-api-blogs-api-openapi.yml",
-    "spaceflight-news-api-info-api-openapi.yml",
-    "spaceflight-news-api-reports-api-openapi.yml"
+    "_original/spaceflight-news-api-openapi.yml"
   ],
   "outputs": [
     "spaceflight-news-api-articles-api-openapi.yml",
@@ -16,11 +13,14 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "spaceflight-news-api-articles-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "spaceflight-news-api-blogs-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "spaceflight-news-api-info-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "spaceflight-news-api-reports-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "spaceflight-news-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "spaceflight-news-api-articles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spaceflight-news-api-blogs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spaceflight-news-api-info-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spaceflight-news-api-reports-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
